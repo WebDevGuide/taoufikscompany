@@ -63,6 +63,8 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
   
 #hide-or-show {
     width: 100%;
+    position: relative;
+    right: 0;
     cursor: pointer;
     box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
@@ -70,7 +72,7 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
     transition: all 0.2s ease-in-out;
 }
 
-#hide-or-show {
+#hide-or-show:hover {
     transform: scale(0.9);
 }
 
@@ -139,8 +141,7 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 
 
 #local-time, .date {
-   position: absolute;
-   bottom: 360px;
+   position: relative;
    margin: 30px;
    font-family: poppins;
    font-size: 16px;
@@ -150,8 +151,10 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 }
   
 .notification button {
-    width: 50px;
-    height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    width: 3vw;
+    height: 3vw;
     background: #ffffff;
 border-radius: 8px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
@@ -166,7 +169,7 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 
 .notification p {
     font-family: poppins;
-    font-size: 16px;
+    font-size: 80%;
     font-weight: 500;
     padding: 7px 15px;
     background-color: #2c2c2c;
@@ -181,7 +184,7 @@ box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 }
 
 .notification img {
-    height: 35px;
+    height: 70%;
     position: relative;
     top: 2px;
     text-align: center;
@@ -216,7 +219,7 @@ body {
     align-items: center;
     font-family: poppins;
     color: #2c2c2c;
-    font-size: 120px;
+    font-size: 7vw;
     font-weight: 600;
     z-index: 100;
 }
@@ -324,6 +327,7 @@ align-items: center;}
 -webkit-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
 border-radius: 15px;
+height: 56vh;
 }
 
 .flash-cards {
@@ -336,7 +340,6 @@ border-radius: 15px;
     box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
-    margin-top: 25px;
 }
 
 .notes-nav-bar {
