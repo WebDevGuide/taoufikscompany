@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_for_start_page.css">
+    <link rel="shortcut icon" href="images/SVG/Plan de travail 1.svg" type="image/x-icon">
+    <title>TimeMaster</title>
+</head>
+<body>
+<a href="">
+  <div class="company-name">TAOUFIK'S COMPANY</div>
+</a>
+<button id="toggle-btn"><img src="closed_eye.svg" id="hide-or-show" alt=""></button>
+<div class="nav-bar-top">
+<a class="notification" href="coming_soon.html">
+    <button> <img src="images/crown.svg" alt=""> </button>
+    <p>MORE FEATURES?</p>
+</a>
+</div> 
+<div style="position: absolute; top: 85px; right: 820px;" id="pop-up-message"></div>
+<div id="embedded-video">
+    <iframe height="100%" width="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<section class="timer">
+  <div class="countdown-main">
+    <div id="timer">00:00</div>
+  </div>
+  <div class="function-buttons">
+    <button onclick="startPomodoro(25)" id="pomodoro25">25-Minute Pomodoro</button>
+    <span>|</span>
+    <button onclick="startPomodoro(50)" id="pomodoro50">50-Minute Pomodoro</button>
+</div>
+ 
+  <div id="local-time" alt=""></div>
+  <div id="currentDateTime" class="date" style="position: relative; top: 25px;"></div>
+
+</section>
+<section class="to-the-side">
+    <div class="music-player">
+        <iframe src="https://open.spotify.com/embed/playlist/0JpkcEtZWGrfuDYOzGI5dr?utm_source=generator&theme=0" width="100%" height="550px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+    </div>
+<div class="flash-cards">
+  <div class="notes-nav-bar">
+    <h5 class="notes-nav-bar-title">
+      Notes
+    </h5>
+    <div class="notes-button">
+      <button id="copy-to-clipboard">
+        <img src="images/copy_to_clipboard.svg" alt="" height="20px" class="copy-to-clipboard-icon">
+      </button>
+      <button class="clear">
+        <img src="images/wrong.svg" alt="" height="20px" class="clear-icon">
+      </button>
+    </div>
+  </div>
+  <div class="notes-text-area">
+    <textarea class="notes-input" placeholder="Write text here..."></textarea>
+  </div>
+  <div class="feedback-n-our-products">
+    <a href="">FEEDBACK</a>
+    <span>·</span>
+    <a href="" style="margin-left: 7px;">OUR PRODUCTS</a>
+  </div>
+  <div id="clipboard-message" style="display: none;">Copied to clipboard</div>
+</div>
+</section>
+
+<!-- notifications  -->
+<script>
+const notification = document.querySelector('.notification');
+const text = notification.querySelector('p');
+
+text.addEventListener('mouseover', function() {
+  text.textContent = 'DISCOVER NOW!';
+  text.style.color = '#CC9966'; // Change the text color on hover
+});
+
+text.addEventListener('mouseout', function() {
+  text.textContent = 'MORE FEATURES?';
+  text.style.color = '#ffffff'; // Change the text color back to original on mouseout
+});
+</script>
+
+<!-- hide or show -->
+<script>
+const toggleBtn = document.querySelector('#toggle-btn');
+const flashCards = document.querySelector('.flash-cards');
+const musicPlayer = document.querySelector('.music-player');
+const inputText = document.querySelector('.notes-input');
+const hideOrShow = document.querySelector('#hide-or-show')
+
+let isToggled = false;
+
+toggleBtn.addEventListener('click', function() {
+  if (isToggled) {
+    flashCards.style.height = '33vh';
+    musicPlayer.style.opacity = '1';
+    inputText.style.height = '24vh';
+    setTimeout(function(){
+      musicPlayer.style.display = 'block';
+    }, 500);
+    hideOrShow.src = "closed_eye.svg";
+  } else {
+    flashCards.style.height = '93vh';
+    musicPlayer.style.opacity = '0';
+    inputText.style.height = '84vh';
+    setTimeout(function(){
+      musicPlayer.style.display = 'none';
+    }, 500);
+    hideOrShow.src = "opened_eye.svg";
+  }
+  isToggled = !isToggled;
+  flashCards.style.transition = 'height 0.5s ease-in-out';
+  inputText.style.transition = 'height 0.5s ease-in-out';
+  musicPlayer.style.transition = 'opacity 0.1s ease-in-out';
+});
+
+</script>
+
+<!-- alert notes are filled -->
+<script>
+  // Get the text area element
+const notesTextArea = document.querySelector('.notes-input');
+
+// Set a flag to keep track of whether the user has made changes to the notes
+let hasChanges = false;
+
+// Add an event listener to the text area to detect changes
+notesTextArea.addEventListener('input', () => {
+  hasChanges = true;
+});
+
+// Add an event listener to the window to detect when the user is trying to leave the page
+window.addEventListener('beforeunload', (event) => {
+  // If the user has made changes to the notes, show a confirmation dialog
+  if (hasChanges) {
+    // Cancel the event to prevent the page from being unloaded
+    event.preventDefault();
+    // Display a confirmation dialog
+    event.returnValue = '';
+    // Return the message that will be displayed in the dialog
+    return 'Are you sure you want to leave? You have unsaved changes in the notes area.';
+  }
+});
+</script>
+
+<!-- hide company name -->
+<script>
+  setTimeout(() => {
+  const companyName = document.querySelector('.company-name');
+  companyName.style.top = '-20px';
+  companyName.style.opacity = 0;
+}, 10000);
+
+</script>
+
+<script src="notes_functions.js"></script>
+<script src="time.js"></script>
+</body>
+</html>

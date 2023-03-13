@@ -1,0 +1,66 @@
+body {
+    font-family: poppins;
+    margin: 0;
+    background-color: white;
+    background-image: url(images/3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.main {
+    margin: 50px 25px 0;
+    height: 90vh;
+    width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.main-of-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+}
+
+.main-left .use-counter {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 78px;
+    box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 75px -27px rgba(0,0,0,0.75);
+}
+
+
+
+.import-n-result p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+
